@@ -1,10 +1,10 @@
 const Searchbar = () => {
   return (
-    <div className="bg-white h-full mx-[20px] ">
+    <div className="bg-white h-[full] mx-[20px] w-[300px] rounded-xl focus:outline-none">
       <input
         type="text"
-        className="p-0  h-full"
         placeholder="Place your text here"
+        className="w-full rounded-xl text-black p-0.5 px-4 flex items-center justify-center mx-auto focus:outline-none"
       />
     </div>
   );

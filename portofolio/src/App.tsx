@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom";
 import MenuBar from "./components/shared/MenuBar";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <div className="w-screen h-screen">
+    <div>
       <MenuBar />
-      <Outlet />
+      <HomePage />;
     </div>
   );
 }
