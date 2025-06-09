@@ -1,15 +1,22 @@
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 
-const Icon = ({ iconImage }: { iconImage: string }) => {
+const Icon = ({
+  iconImage,
+  position,
+}: {
+  iconImage: string;
+  position: { x: number; y: number };
+}) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: `${iconImage}`,
   });
-  const style = transform
-    ? {
-        transform: CSS.Translate.toString(transform),
-      }
-    : undefined;
+  const style = {
+    position: "absolute" as const,
+    left: position.x,
+    top: position.y,
+    transform: transform ? CSS.Translate.toString(transform) : undefined,
+  };
   return (
     <div
       className="p-2 hover:bg-blue-300 transition-colors duration-300 size-fit "
