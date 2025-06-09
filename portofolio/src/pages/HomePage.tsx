@@ -1,30 +1,31 @@
 import "../styles/home.css";
-import cSharpIcon from "../assets/cSharpIcon.svg";
-import fileIcon from "../assets/fileIcon.png";
-import javaIcon from "../assets/javaIcon.svg";
-import pdfIcon from "../assets/pdfIcon.png";
 import Icon from "../components/shared/Icon";
 import { closestCenter, DndContext } from "@dnd-kit/core";
 import { useState } from "react";
 import { handleDragEnd } from "../utils/dragHelpers";
+import { icons } from "../utils/constants";
 
 const HomePage = () => {
-  const iconImages = [cSharpIcon, javaIcon, fileIcon, pdfIcon];
-
   const [positions, setPositions] = useState(() =>
-    iconImages.map((_, i) => ({ x: 10, y: 10 + i * 80 }))
+    icons.map((_, i) => ({ x: 10, y: 10 + i * 80 }))
   );
 
   return (
     <DndContext
       collisionDetection={closestCenter}
       onDragEnd={(event) => {
-        handleDragEnd(event, iconImages, setPositions);
+        handleDragEnd(event, setPositions);
       }}
     >
       <div className="home w-svw h-svh p-2 relative">
-        {iconImages.map((iconImage, index) => (
-          <Icon key={index} iconImage={iconImage} position={positions[index]} />
+        {icons.map((iconImage, index) => (
+          <Icon
+            key={iconImage.name}
+            id={iconImage.name}
+            iconImage={iconImage.icon}
+            position={positions[index]}
+            title={iconImage.name}
+          />
         ))}
       </div>
     </DndContext>

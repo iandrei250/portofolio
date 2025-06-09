@@ -1,15 +1,10 @@
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
+import type { IIcon } from "../../utils/types/types";
 
-const Icon = ({
-  iconImage,
-  position,
-}: {
-  iconImage: string;
-  position: { x: number; y: number };
-}) => {
+const Icon = ({ id, iconImage, position, title }: IIcon) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: `${iconImage}`,
+    id,
   });
   const style = {
     position: "absolute" as const,
@@ -25,7 +20,8 @@ const Icon = ({
       {...listeners}
       {...attributes}
     >
-      <img src={iconImage} alt="icon iage" className="w-[48px] h-[48px]" />
+      <img src={iconImage} alt={`${id} icon`} className="w-[48px] h-[48px]" />
+      <div className="text-center text-xs mt-1">{title}</div>
     </div>
   );
 };

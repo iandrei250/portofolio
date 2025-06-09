@@ -1,13 +1,13 @@
 import type { DragEndEvent } from "@dnd-kit/core";
+import { icons } from "./constants";
 
 export const handleDragEnd = (
   event: DragEndEvent,
-  iconImages: string[],
   setPositions: React.Dispatch<React.SetStateAction<{ x: number; y: number }[]>>
 ) => {
   const { delta, active } = event;
 
-  const index = iconImages.findIndex((img) => `${img}` === active.id);
+  const index = icons.findIndex((icon) => icon.name === active.id);
   if (index === -1) return;
 
   setPositions((prev) =>
