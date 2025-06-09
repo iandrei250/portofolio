@@ -12,10 +12,7 @@ const HomePage = () => {
   const iconImages = [cSharpIcon, javaIcon, fileIcon, pdfIcon];
 
   const [positions, setPositions] = useState(() =>
-    iconImages.map((_, i) => ({
-      x: Math.floor(i / 4) * 80,
-      y: (i % 4) * 80,
-    }))
+    iconImages.map((_, i) => ({ x: 10, y: 10 + i * 80 }))
   );
 
   return (
