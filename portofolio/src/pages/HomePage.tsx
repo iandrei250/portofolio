@@ -5,6 +5,7 @@ import { useState } from "react";
 import { handleDragEnd } from "../utils/dragHelpers";
 import { icons } from "../utils/constants";
 import Modal from "../components/shared/Modal";
+import type { IconConfig } from "../utils/types/types";
 
 const HomePage = () => {
   const [positions, setPositions] = useState(() =>
@@ -12,6 +13,8 @@ const HomePage = () => {
   );
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const [activeIcon, setActiveIcon] = useState<IconConfig | null>(null);
 
   return (
     <DndContext
@@ -22,7 +25,10 @@ const HomePage = () => {
     >
       <div className="home w-svw h-svh p-2 relative">
         {icons.map((iconImage, index) => (
-          <div onDoubleClick={() => setIsOpen(true)} key={iconImage.name}>
+          <div
+            onDoubleClick={() => setActiveIcon(iconImage)}
+            key={iconImage.name}
+          >
             <Icon
               key={iconImage.name}
               id={iconImage.name}
@@ -30,15 +36,18 @@ const HomePage = () => {
               position={positions[index]}
               title={iconImage.name}
             />
-            <Modal
-              navigationDestination={iconImage.link ?? ""}
-              closeModal={() => setIsOpen(false)}
-              title={iconImage.name}
-              description={iconImage.description}
-              isVisible={isOpen}
-            />
           </div>
         ))}
+
+        {activeIcon && (
+          <Modal
+            navigationDestination={activeIcon?.link ?? ""}
+            closeModal={() => setActiveIcon(null)}
+            title={activeIcon?.name ?? ""}
+            description={activeIcon?.description}
+            isVisible={isOpen}
+          />
+        )}
       </div>
     </DndContext>
   );

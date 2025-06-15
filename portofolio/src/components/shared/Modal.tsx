@@ -13,10 +13,9 @@ const Modal = ({
   closeModal,
   title,
   description,
-  isVisible,
 }: ModalProps) => {
   return (
-    <div className={isVisible ? "inline" : "hidden"}>
+    <div>
       <div
         className="relative z-10"
         aria-labelledby="dialog-title"
@@ -24,7 +23,7 @@ const Modal = ({
         aria-modal="true"
       >
         <div
-          className="fixed inset-0 bg-gray-500 opacity-10"
+          className="fixed inset-0 bg-gray-500 opacity-70"
           aria-hidden="true"
           onClick={closeModal}
         ></div>
