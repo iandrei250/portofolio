@@ -6,15 +6,16 @@ import { handleDragEnd } from "../utils/dragHelpers";
 import { icons } from "../utils/constants";
 import Modal from "../components/shared/Modal";
 import type { IconConfig } from "../utils/types/types";
+import CV from "../assets/CV.pdf";
 
 const HomePage = () => {
   const [positions, setPositions] = useState(() =>
     icons.map((_, i) => ({ x: 10, y: 10 + i * 80 }))
   );
 
-  const [isOpen, setIsOpen] = useState(false);
-
   const [activeIcon, setActiveIcon] = useState<IconConfig | null>(null);
+
+  const [showPdf, setShowPdf] = useState(false);
 
   return (
     <DndContext
@@ -38,14 +39,26 @@ const HomePage = () => {
             />
           </div>
         ))}
-
+        <button
+          onClick={() => setShowPdf(true)}
+          className="p-2 hover:bg-blue-300 transition-colors duration-300 size-fit"
+        >
+          Appear
+        </button>
         {activeIcon && (
           <Modal
             navigationDestination={activeIcon?.link ?? ""}
             closeModal={() => setActiveIcon(null)}
             title={activeIcon?.name ?? ""}
             description={activeIcon?.description}
-            isVisible={isOpen}
+          />
+        )}
+
+        {showPdf && (
+          <iframe
+            src={CV}
+            className="w-[300px] h-[500px] rounded-xl border"
+            title="PDF Viewer"
           />
         )}
       </div>
