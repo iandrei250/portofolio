@@ -4,7 +4,7 @@ import { closestCenter, DndContext } from "@dnd-kit/core";
 import { useState } from "react";
 import { handleDragEnd } from "../utils/dragHelpers";
 import { icons } from "../utils/constants";
-import Dialog from "../components/shared/Dialog";
+import Modal from "../components/shared/Modal";
 
 const HomePage = () => {
   const [positions, setPositions] = useState(() =>
@@ -30,14 +30,13 @@ const HomePage = () => {
               position={positions[index]}
               title={iconImage.name}
             />
-            {isOpen && (
-              <Dialog
-                navigationDestination={iconImage.link ?? ""}
-                closeModal={() => setIsOpen(false)}
-                title={iconImage.name}
-                description={iconImage.description}
-              />
-            )}
+            <Modal
+              navigationDestination={iconImage.link ?? ""}
+              closeModal={() => setIsOpen(false)}
+              title={iconImage.name}
+              description={iconImage.description}
+              isVisible={isOpen}
+            />
           </div>
         ))}
       </div>

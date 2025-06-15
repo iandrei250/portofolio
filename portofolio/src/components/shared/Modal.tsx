@@ -1,19 +1,22 @@
-import { Link } from "react-router-dom";
 import xIcon from "../../assets/xIcon.svg";
 
-const Dialog = ({
-  navigationDestination,
-  closeModal,
-  title,
-  description,
-}: {
+interface ModalProps {
   navigationDestination: string;
   closeModal: () => void;
   title: string;
   description?: string;
-}) => {
+  isVisible?: boolean;
+}
+
+const Modal = ({
+  navigationDestination,
+  closeModal,
+  title,
+  description,
+  isVisible,
+}: ModalProps) => {
   return (
-    <div>
+    <div className={isVisible ? "inline" : "hidden"}>
       <div
         className="relative z-10"
         aria-labelledby="dialog-title"
@@ -52,15 +55,15 @@ const Dialog = ({
                 </div>
               </div>
               <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                <Link
+                <a
                   type="button"
                   className="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white hover:bg-gray-100 sm:ml-3 sm:w-auto"
                   target="_blank"
                   rel="noopener noreferrer"
-                  to={navigationDestination}
+                  href={navigationDestination ?? "#"}
                 >
                   Take me there
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -70,4 +73,4 @@ const Dialog = ({
   );
 };
 
-export default Dialog;
+export default Modal;

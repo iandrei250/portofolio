@@ -23,10 +23,12 @@ export const icons: IconConfig[] = [
   {
     name: "Readme",
     icon: fileIcon,
+    link: "#",
   },
   {
     name: "CV",
     icon: pdfIcon,
+    link: "#",
   },
   {
     name: "Fantasyze",
