@@ -2,6 +2,7 @@ import cSharpIcon from "../assets/cSharpIcon.svg";
 import fileIcon from "../assets/fileIcon.png";
 import javaIcon from "../assets/javaIcon.svg";
 import vueIcon from "../assets/vueIcon.svg";
+import githubIcon from "../assets/github.png";
 import type { IconConfig } from "./types/types";
 
 export const icons: IconConfig[] = [
@@ -30,5 +31,13 @@ export const icons: IconConfig[] = [
     link: "https://github.com/iandrei250/Fantasyze",
     description:
       "Fantasyze is a web application that allows users to create, store, and update fictional characters. It is built with Vue.js and provides a user-friendly interface for managing character data.",
+  },
+
+   {
+    name: "Github Finder",
+    icon: githubIcon,
+    link: "https://github.com/iandrei250/github-finder",
+    description:
+      "Github Finder is a web application that allows users to search for GitHub users and view their profiles. It is built with React and provides a simple interface for finding GitHub users.",
   },
 ];
