@@ -1,7 +1,6 @@
 import cSharpIcon from "../assets/cSharpIcon.svg";
 import fileIcon from "../assets/fileIcon.png";
 import javaIcon from "../assets/javaIcon.svg";
-import pdfIcon from "../assets/pdfIcon.png";
 import vueIcon from "../assets/vueIcon.svg";
 import type { IconConfig } from "./types/types";
 
