@@ -7,6 +7,7 @@ import { icons } from "../utils/constants";
 import Modal from "../components/shared/Modal";
 import type { IconConfig } from "../utils/types/types";
 import CV from "../assets/CV.pdf";
+import PdfViewer from "../components/shared/PdfViewer";
 
 const HomePage = () => {
   const [positions, setPositions] = useState(() =>
@@ -55,11 +56,7 @@ const HomePage = () => {
         )}
 
         {showPdf && (
-          <iframe
-            src={CV}
-            className="w-[300px] h-[500px] rounded-xl border"
-            title="PDF Viewer"
-          />
+          <PdfViewer cvPath={CV}/>
         )}
       </div>
     </DndContext>
