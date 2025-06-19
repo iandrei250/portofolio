@@ -26,11 +26,6 @@ export const icons: IconConfig[] = [
     link: "#",
   },
   {
-    name: "CV",
-    icon: pdfIcon,
-    link: "#",
-  },
-  {
     name: "Fantasyze",
     icon: vueIcon,
     link: "https://github.com/iandrei250/Fantasyze",
