@@ -23,7 +23,7 @@ const Modal = ({
         aria-modal="true"
       >
         <div
-          className="fixed inset-0 bg-gray-500 opacity-70"
+          className="fixed inset-0 bg-gray-900 opacity-70"
           aria-hidden="true"
           onClick={closeModal}
         ></div>
@@ -38,7 +38,7 @@ const Modal = ({
                         className="text-base font-semibold text-gray-900"
                         id="dialog-title"
                       >
-                        About {title}
+                        {title !== "Readme" && <>About</>} {title}
                       </h3>
                       <div
                         className="w-4 h-4 cursor-pointer"
@@ -48,12 +48,13 @@ const Modal = ({
                       </div>
                     </div>
                     <div className="mt-2">
-                      <p className="text-sm text-gray-500">{description}</p>
+                      <p className="text-sm text-gray-800">{description}</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              {title !== "Readme" && (
+                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                 <a
                   type="button"
                   className="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white hover:bg-gray-100 sm:ml-3 sm:w-auto"
@@ -64,6 +65,7 @@ const Modal = ({
                   Take me there
                 </a>
               </div>
+              )}
             </div>
           </div>
         </div>

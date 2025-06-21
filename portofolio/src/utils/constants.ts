@@ -7,6 +7,11 @@ import type { IconConfig } from "./types/types";
 
 export const icons: IconConfig[] = [
   {
+    name: "Readme",
+    icon: fileIcon,
+    description: "Welcome to my portfolio! This aplication serves as a showcase to my skills and ideas.Here you can find some of my projects.You can double-click on the icons to open a modal with more information about each project and with a button to visit the GitHub repository.",
+  },
+  {
     name: "Fantasyze API",
     icon: cSharpIcon,
     link: "https://github.com/iandrei250/FantasyzeAPI",
@@ -18,12 +23,7 @@ export const icons: IconConfig[] = [
     icon: javaIcon,
     link: "https://github.com/iandrei250/Job-Tracking-Application",
     description:
-      "Job Tracker is a Java-based application that helps users manage their job applications. It allows users to track the status of their applications, store relevant documents, and set reminders for follow-ups.",
-  },
-  {
-    name: "Readme",
-    icon: fileIcon,
-    link: "#",
+      "Job Tracker is a Java-based application that helps users manage their job applications. It allows users to track the status of their applications, store relevant documents, and set reminders for follow-ups. The application is built with Java Spring for backend, ensuring data exposure through CRUD operations and provides a user-friendly interface in React Typescript for managing job applications.",
   },
   {
     name: "Fantasyze",
